@@ -203,6 +203,35 @@ class _HomePageState extends State<HomePage> {
             }
 
             Widget _detailInfoRow() {
+              Widget _ratingWidget() {
+                return Row(
+                  children: List<Widget>.generate(5, (starIndex) {
+                    double fillAmount = articles[index].rating - starIndex;
+                    Icon starIcon;
+                    if (fillAmount >= 1) {
+                      starIcon = Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                        size: 15,
+                      );
+                    } else if (fillAmount >= 0.5) {
+                      starIcon = Icon(
+                        Icons.star_half,
+                        color: Colors.amber,
+                        size: 15,
+                      );
+                    } else {
+                      starIcon = Icon(
+                        Icons.star_border,
+                        color: Colors.amber,
+                        size: 15,
+                      );
+                    }
+                    return starIcon;
+                  }),
+                );
+              }
+
               return Padding(
                 padding: EdgeInsets.fromLTRB(
                   30,
@@ -236,7 +265,7 @@ class _HomePageState extends State<HomePage> {
                             width: MediaQuery.of(context).size.width * 0.5,
                             child: Text(
                               articles[index].title,
-                              maxLines: 3,
+                              maxLines: 2,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
@@ -244,14 +273,21 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
-                          Text(
-                            articles[index].location,
-                            style: TextStyle(
-                              color: Colors.white54,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w300,
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 3,
+                              bottom: 3,
+                            ),
+                            child: Text(
+                              articles[index].location,
+                              style: TextStyle(
+                                color: Colors.white54,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w300,
+                              ),
                             ),
                           ),
+                          _ratingWidget()
                         ],
                       ),
                     ),
