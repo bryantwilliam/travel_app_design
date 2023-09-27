@@ -2,4 +2,4 @@
 
 A Travel App design.
 
-<img src="https://github.com/bryantwilliam/travel_app_design/blob/main/screen_recording.gif" width="400"/>
+[untitled.webm](https://github.com/bryantwilliam/travel_app_design/assets/6384447/bb525721-7a16-4686-a9d1-827c60eab6c0)
